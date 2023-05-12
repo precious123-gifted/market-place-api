@@ -14,6 +14,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     await connectToMongoDB();
     
+
+    
+    res.setHeader("Access-Control-Allow-Origin", "*"); // Set CORS headers
+
     
     if (req.method === "POST") {
       if (!req.body) return res.status(400).json({ error: "Data is missing" })
