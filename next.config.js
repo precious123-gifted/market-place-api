@@ -7,4 +7,10 @@ module.exports = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  
+  // Add this line
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+  },
 };
+
