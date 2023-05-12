@@ -16,9 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     
 
     
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+ 
 
     
     if (req.method === "POST") {
@@ -70,6 +68,10 @@ user.save()
       _id: data._id
     }
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    
     return res.status(201).json({
       success: true,
       user
