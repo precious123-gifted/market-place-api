@@ -20,6 +20,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     
     if (req.method === "POST") {
+
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
+      
       if (!req.body) return res.status(400).json({ error: "Data is missing" })
 
       const { companyName,firstName ,lastName,jobTitle,industry,email, password } = req.body
@@ -68,9 +73,7 @@ user.save()
       _id: data._id
     }
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
     
     return res.status(201).json({
       success: true,
