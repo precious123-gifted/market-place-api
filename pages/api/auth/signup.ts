@@ -16,7 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     
 
     
-    res.setHeader("Access-Control-Allow-Origin", "*"); // Set CORS headers
+    
 
     
     if (req.method === "POST") {
