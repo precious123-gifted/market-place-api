@@ -59,7 +59,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             }
 
             return res.status(201)
-              .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app/') // Replace with your domain name
+              .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
               .json({
                 success: true,
                 user
@@ -69,31 +69,30 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             // handle any errors
             console.error(error);
             res.status(500)
-              .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app/') // Replace with your domain name
+              .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
               .json({ error: "Internal Server Error" });
           })
       }
     } else if (req.method === "OPTIONS") {
-      res.setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app/'); // Replace with your domain name
+      res.setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app'); // Replace with your domain name
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
       res.status(200).end();
     } else {
       res.status(405)
-        .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app/') // Replace with your domain name
+        .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
         .json({ error: "Method Not Allowed,nor try this method again" })
     }
   } catch (error) {
     // handle any errors that occur during database connection
     console.error(error);
     res.status(500)
-      .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app/') // Replace with your domain name
+      .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
       .json({ error: "Internal Server Error" });
    }
 }
 
- export default handler
-
+export default handler
 
 
 
