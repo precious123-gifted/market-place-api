@@ -60,6 +60,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
             return res.status(201)
               .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
+              .setHeader('Access-Control-Allow-Credentials', 'true')
               .json({
                 success: true,
                 user
