@@ -78,6 +78,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       res.setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app'); // Replace with your domain name
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
+      res.setHeader('Access-Control-Allow-Credentials', 'true')
       res.status(200).end();
     } else {
       res.status(405)
