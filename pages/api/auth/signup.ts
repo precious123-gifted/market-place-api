@@ -14,6 +14,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await connectToMongoDB();
 
     if (req.method === "POST") {
+
+      res.setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') 
+      res.setHeader('Access-Control-Allow-Credentials', 'true')
+
       if (!req.body) return res.status(400).json({ error: "Data is missing" })
 
       const { companyName, firstName, lastName, jobTitle, industry, email, password } = req.body
