@@ -77,6 +77,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             console.error(error);
             res.status(500)
               .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
+              .setHeader('Access-Control-Allow-Credentials', 'true')
               .json({ error: "Internal Server Error" });
           })
       }
@@ -89,6 +90,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     } else {
       res.status(405)
         .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
+        .setHeader('Access-Control-Allow-Credentials', 'true')                           
         .json({ error: "Method Not Allowed,nor try this method again" })
     }
   } catch (error) {
@@ -96,6 +98,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     console.error(error);
     res.status(500)
       .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
+      .setHeader('Access-Control-Allow-Credentials', 'true')
       .json({ error: "Internal Server Error" });
    }
 }
