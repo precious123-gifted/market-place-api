@@ -24,11 +24,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       
       if (checkIfCompanyNameExists) {
-        return res.status(201).json({ error: `A user with the company name '${companyName}' already exists` })
+        return res.status(201)
+        .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
+        .setHeader('Access-Control-Allow-Credentials', 'true')
+        .json({ error: `A user with the company name '${companyName}' already exists` })
+        
       } 
 
       if (checkIfEmailExists) {
-        return res.status(200).json({ error: `A user with the email '${email}' already exists` })
+        return res.status(200)
+        .setHeader('Access-Control-Allow-Origin', 'https://market-place-1gtp.vercel.app') // Replace with your domain name
+        .setHeader('Access-Control-Allow-Credentials', 'true')
+        .json({ error: `A user with the email '${email}' already exists` })
       } 
       else {
         if (!password) {
