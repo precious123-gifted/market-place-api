@@ -24,11 +24,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       
       if (checkIfCompanyNameExists) {
-        return res.status(409).json({ error: `A user with the company name '${companyName}' already exists` })
+        return res.status(201).json({ error: `A user with the company name '${companyName}' already exists` })
       } 
 
       if (checkIfEmailExists) {
-        return res.status(409).json({ error: `A user with the email '${email}' already exists` })
+        return res.status(200).json({ error: `A user with the email '${email}' already exists` })
       } 
       else {
         if (!password) {
