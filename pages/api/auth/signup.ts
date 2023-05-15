@@ -22,13 +22,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       const checkIfCompanyNameExists = await User.findOne({ companyName})
 
+      
       if (checkIfCompanyNameExists) {
-        return res.status(409).json({ error: "a User with this company name Already exists" })
+        return res.status(409).json({ error: `A user with the company name '${companyName}' already exists` })
       } 
 
       if (checkIfEmailExists) {
-        return res.status(409).json({ error: "a User with this email Already exists" })
-      } else {
+        return res.status(409).json({ error: `A user with the email '${email}' already exists` })
+      } 
+      else {
         if (!password) {
           return res.status(400).json({ error: "Password is missing" })
         }
