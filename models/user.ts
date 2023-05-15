@@ -6,14 +6,14 @@ const UserSchema = new Schema ({
 companyName :{
     type : String ,
     required : [true , "company name is required"],
-    minLength : [4,"full name should be atleast 4 letters long"],
+    minLength : [1,"full name should be atleast 4 letters long"],
     maxLength : [30,"full name should be atmost 30 letters long"],
 },
 
 firstName :{
     type : String ,
     required : [true , "first name is required"],
-    minLength : [4,"full name should be atleast 4 letters long"],
+    minLength : [1,"full name should be atleast 4 letters long"],
     maxLength : [30,"full name should be atmost 30 letters long"],
 }
 ,
@@ -21,7 +21,7 @@ firstName :{
 lastName :{
     type : String ,
     required : [true , "last name is required"],
-    minLength : [4,"full name should be atleast 4 letters long"],
+    minLength : [1,"full name should be atleast 4 letters long"],
     maxLength : [30,"full name should be atmost 30 letters long"],
 }
 ,
@@ -29,7 +29,7 @@ lastName :{
 jobTitle :{
     type : String ,
     required : [true , "job title is required"],
-    minLength : [4,"full name should be atleast 4 letters long"],
+    minLength : [2,"full name should be atleast 4 letters long"],
     maxLength : [30,"full name should be atmost 30 letters long"],
 }
 ,

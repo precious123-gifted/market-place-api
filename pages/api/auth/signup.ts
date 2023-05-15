@@ -18,10 +18,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       const { companyName, firstName, lastName, jobTitle, industry, email, password } = req.body
 
-      const userExists = await User.findOne({ email })
+      const checkIfEmailExists = await User.findOne({ email})
 
-      if (userExists) {
-        return res.status(409).json({ error: "User Already exists" })
+      const checkIfCompanyNameExists = await User.findOne({ companyName})
+
+      if (checkIfCompanyNameExists) {
+        return res.status(409).json({ error: "a User with this company name Already exists" })
+      } 
+
+      if (checkIfEmailExists) {
+        return res.status(409).json({ error: "a User with this email Already exists" })
       } else {
         if (!password) {
           return res.status(400).json({ error: "Password is missing" })
@@ -110,9 +116,9 @@ export default handler
 
 //       const { companyName, firstName, lastName, jobTitle, industry, email, password } = req.body
 
-//       const userExists = await User.findOne({ email })
+//       const checkIfEmailExists = await User.findOne({ email })
 
-//       if (userExists) {
+//       if (checkIfEmailExists) {
 //         return res.status(409).json({ error: "User Already exists" })
 //       } else {
 //         if (!password) {
