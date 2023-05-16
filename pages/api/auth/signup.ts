@@ -16,7 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "POST") {
       if (!req.body) return res.status(400).json({ error: "Data is missing" })
 
-      const { companyName, firstName, lastName, jobTitle, industry, email, password } = req.body
+      const { companyName, firstName, lastName, jobTitle, industry, email, password , createdDate } = req.body
 
       const checkIfEmailExists = await User.findOne({ email})
 
@@ -58,7 +58,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           jobTitle,
           industry,
           email,
-          password: hashedPassword
+          password: hashedPassword,
+          createdDate
         })
 
         user.save()
@@ -70,7 +71,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
               jobTitle: data.jobTitle,
               industry: data.industry,
               email: data.email,
-              _id: data._id
+              _id: data._id,
+              createdDate: data.createdDate,
             }
 
             return res.status(201)

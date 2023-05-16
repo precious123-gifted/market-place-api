@@ -11,6 +11,7 @@ export interface IUser {
     jobTitle : string,
     industry : string,
     email: string;
+    createdDate : string;
     
 }
 

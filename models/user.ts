@@ -56,7 +56,10 @@ password :{
 }
 ,
 
-
+createdDate: {
+    type: Date,
+    default: Date.now,
+  },
 
  })
 
