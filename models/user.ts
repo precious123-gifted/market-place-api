@@ -59,7 +59,7 @@ password :{
 
 createdDate: {
     type: Date,
-    default: () => moment().tz('Africa/Lagos').toDate(),
+    default: () => moment().tz('Africa/Lagos').startOf('hour').toDate(),
   },
 
  })
