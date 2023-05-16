@@ -1,4 +1,5 @@
 import {Schema,model,models} from "mongoose"
+import moment from 'moment-timezone';
 
 
 const UserSchema = new Schema ({
@@ -58,7 +59,7 @@ password :{
 
 createdDate: {
     type: Date,
-    default: Date.now,
+    default: () => moment().tz('Africa/Lagos').toDate(),
   },
 
  })
